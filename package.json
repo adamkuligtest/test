@@ -23,6 +23,10 @@
     "license": "ISC",
     "build": {
         "appId": "com.rossmann.internalcom",
+        "files": [
+            "build/**/*",
+            "node_modules/**/*"
+        ],
         "linux": {
             "target": [
                 "deb"
