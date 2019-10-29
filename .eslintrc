@@ -1,0 +1,29 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react", "react-hooks"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "default-case": "error",
+    "eqeqeq": ["error", "smart"],
+    "no-mixed-spaces-and-tabs": "off",
+    "no-var": "error",
+    "quotes": ["error", "single"],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_$" }],
+    "react/no-unused-prop-types": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "globals": {
+    "process": true,
+    "__dirname": true,
+    "Promise": true,
+    "document": true,
+    "window": true
+  }
+}

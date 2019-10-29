@@ -1,0 +1,77 @@
+{
+    "name": "internalcom-frontend-poc",
+    "version": "1.0.1",
+    "description": "",
+    "main": "public/main.js",
+    "scripts": {
+        "electron-start": "electron .",
+        "electron-build-raspberry": "electron-builder build -c.extraMetadata.main=build/main.js --linux --armv7l --publish always",
+        "electron-build-windows": "electron-builder build -c.extraMetadata.main=build/main.js --windows",
+        "start": "react-scripts start",
+        "build": "cross-env PUBLIC_URL=. REACT_APP_API=http://internalcombackend-913841582.eu-west-1.elb.amazonaws.com react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "dev": "concurrently \"cross-env REACT_APP_API=http://internalcombackend-913841582.eu-west-1.elb.amazonaws.com BROWSER=none yarn start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
+        "rebuild": "electron-rebuild"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://rossmanntfs.visualstudio.com/Grupa%20Projekt%C3%B3w%20SRI/_git/internalcom-frontend-poc"
+    },
+    "homepage": "https://www.rossmann.pl",
+    "author": "<Sebastian_Karalus@rossmann.com.pl>",
+    "license": "ISC",
+    "build": {
+        "appId": "com.rossmann.internalcom",
+        "linux": {
+            "target": [
+                "deb"
+            ]
+        },
+        "win": {
+            "target": "portable"
+        },
+        "publish": {
+            "provider": "s3",
+            "bucket": "rossmann-internalcom-frontend-dist"
+        }
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "concurrently": "^5.0.0",
+        "cross-env": "^6.0.3",
+        "electron": "^7.0.0",
+        "electron-builder": "^21.2.0",
+        "electron-rebuild": "^1.8.6",
+        "electron-reload": "^1.5.0",
+        "eslint": "^6.5.1",
+        "eslint-plugin-react": "^7.16.0",
+        "eslint-plugin-react-hooks": "^2.2.0",
+        "wait-on": "^3.3.0"
+    },
+    "dependencies": {
+        "axios": "^0.19.0",
+        "bootstrap": "^4.3.1",
+        "electron-is-dev": "^1.1.0",
+        "electron-updater": "^4.1.2",
+        "lodash": "^4.17.15",
+        "nfc-pcsc": "^0.7.4",
+        "node-sass": "^4.12.0",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "^3.2.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
